@@ -32,7 +32,7 @@ public:
 
     void dequeue() {
         if (front == NULL) {
-            cout << "Empty\n";
+            cout << "Queue Empty\n";
             return;
         }
 
@@ -46,4 +46,34 @@ public:
 
         delete temp;
     }
+
+    void display() {
+        Node* temp = front;
+
+        if (temp == NULL) {
+            cout << "Queue Empty\n";
+            return;
+        }
+
+        while (temp != NULL) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
 };
+
+int main() {
+    Queue q;
+
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+
+    q.display();
+
+    q.dequeue();
+    q.display();
+
+    return 0;
+}
